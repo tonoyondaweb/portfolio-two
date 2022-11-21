@@ -1,16 +1,7 @@
-import { client } from "../contentful"
-
-export default function index(props) {
+export default function Index() {
   return (
-    <div>{props.title}</div>
+      <section className="h-screen grid place-items-center" id="hero">
+        <h1>Home</h1>
+      </section>
   )
-}
-
-export async function getStaticProps() {
-
-  return {
-    props: {
-      title: "Index"
-    }
-  }
 }
