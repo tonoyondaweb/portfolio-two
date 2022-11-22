@@ -10,11 +10,11 @@ export default function Navbar() {
 	return (
 		<>
 			<nav
-				className={`w-screen h-screen rounded-xl fixed bg-black/30 backdrop-blur-xl transition-all ease-in-out duration-[400ms] ${
+				className={`w-screen h-screen fixed bg-black/30 backdrop-blur-xl top-0 transition-all ease-in-out duration-[400ms] ${
 					menu ? "right-0" : "right-[-100%]"
 				}`}
 			>
-				<ul className="w-[80%] mx-auto h-full flex flex-col justify-evenly text-right text-7xl px-4">
+				<ul className="w-[80%] max-w-[700px] mx-auto h-full flex flex-col justify-evenly text-right text-7xl px-4">
 					<li className="w-max transition-all cursor-pointer hover:text-indigo-700 hover:tracking-widest hover:font-extrabold lg:hover:tracking-[0.8em]" onClick={triggerMenu}>
 						<Link href="/">Home</Link>
 					</li>
