@@ -20,7 +20,10 @@ function MyApp({ Component, pageProps, router }) {
 
 	return (
 		<Layout>
-			<AnimatePresence exitBeforeEnter>
+			<AnimatePresence
+				exitBeforeEnter
+				onExitComplete={() => window.scrollTo(0, 0)}
+			>
 				<motion.div
 					key={router.route}
 					initial="initial"

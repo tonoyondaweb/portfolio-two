@@ -1,9 +1,11 @@
 import Head from "next/head";
 import Link from "next/link";
 import { motion } from "framer-motion";
+import { client } from "../contentful";
 import { HiArrowRight } from "react-icons/hi";
+import { TbBrandGithub, TbBrandTwitter, TbBrandLinkedin } from "react-icons/tb";
 
-export default function Index() {
+export default function Index(props) {
 	const container = {
 		initial: { opacity: 0 },
 		animate: {
@@ -28,6 +30,8 @@ export default function Index() {
 		},
 	};
 
+	const { email, github, twitter, linkedin } = props.links;
+
 	return (
 		<>
 			<Head>
@@ -36,7 +40,7 @@ export default function Index() {
 			</Head>
 			<section className="h-screen grid place-items-center">
 				<motion.div
-					className="w-[90%] max-w-[700px] mx-auto px-5 h-[80%] max-h-[700px] flex flex-col justify-evenly"
+					className="w-[90%] max-w-[800px] mx-auto px-5 h-[80%] max-h-[700px] flex flex-col justify-evenly"
 					variants={container}
 					initial="inital"
 					animate="animate"
@@ -47,21 +51,44 @@ export default function Index() {
 					>
 						Hey! &#128075;
 					</motion.h2>
-					<motion.h1
+					<motion.div
 						className="text-indigo-300 font-semibold text-xl md:text-[2em]"
 						variants={item}
 					>
 						My name is{" "}
-						<span className="text-5xl font-extrabold block md:text-[3em]">
+						<h1 className="text-6xl font-extrabold md:text-[4em]">
 							Tanay Lodh
-						</span>
-					</motion.h1>
+						</h1>
+					</motion.div>
 					<motion.p
 						className="text-xl font-bold md:text-[2em]"
 						variants={item}
 					>
-						Front-end Dev
+						Front-End Dev
 					</motion.p>
+					<motion.div
+						variants={item}
+						className="flex items-center gap-x-5 text-4xl text-indigo-300"
+					>
+						<a
+							href={github}
+							className="transition-all hover:text-indigo-400"
+						>
+							<TbBrandGithub />
+						</a>
+						<a
+							href={linkedin}
+							className="transition-all hover:text-indigo-400"
+						>
+							<TbBrandLinkedin />
+						</a>
+						<a
+							href={twitter}
+							className="transition-all hover:text-indigo-400"
+						>
+							<TbBrandTwitter />
+						</a>
+					</motion.div>
 					<motion.button variants={item}>
 						<Link
 							href="/about"
@@ -75,4 +102,16 @@ export default function Index() {
 			</section>
 		</>
 	);
+}
+
+export async function getStaticProps() {
+	const links = await client
+		.getEntry("19XItu7QEOriO9CAKYPaSK")
+		.then((data) => data.fields.links);
+
+	return {
+		props: {
+			links,
+		},
+	};
 }

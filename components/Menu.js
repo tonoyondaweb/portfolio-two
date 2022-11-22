@@ -10,7 +10,7 @@ export default function Navbar() {
 	return (
 		<>
 			<nav
-				className={`w-screen h-screen fixed bg-black/30 backdrop-blur-xl top-0 transition-all ease-in-out duration-[400ms] ${
+				className={`w-screen h-screen fixed bg-black/60 backdrop-blur-xl top-0 transition-all ease-in-out duration-[400ms] ${
 					menu ? "right-0" : "right-[-100%]"
 				}`}
 			>
@@ -22,7 +22,7 @@ export default function Navbar() {
 						<Link href="/about">About</Link>
 					</li>
 					<li className="w-max transition-all cursor-pointer hover:text-indigo-700 hover:tracking-widest hover:font-extrabold lg:hover:tracking-[0.8em]" onClick={triggerMenu}>
-						<Link href="/work">Work</Link>
+						<Link scroll={false} href="/work">Work</Link>
 					</li>
 					<li className="w-max transition-all cursor-pointer hover:text-indigo-700 hover:tracking-widest hover:font-extrabold lg:hover:tracking-[0.8em]" onClick={triggerMenu}>
 						<Link href="/contact">Contact</Link>
