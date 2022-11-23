@@ -7,7 +7,7 @@ module.exports = {
 	theme: {
 		extend: {
 			screens: {
-				'lh': {'raw': '(min-height: 840px)'}
+				'lh': {'raw': '(min-height: 840px), (min-width:768px)'}
 			}
 		},
 	},

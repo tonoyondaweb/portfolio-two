@@ -47,7 +47,7 @@ export default function About({ intro, text, skills }) {
 					</motion.h1>
 					<div className="bg-gray-900">
 						<motion.h2 className="font-semibold text-2xl mb-5" variants={item}>{intro}</motion.h2>
-						<motion.p className="text-lg max-w-[700px]" variants={item}>{text}</motion.p>
+						<motion.p className="text-lg max-w-[900px]" variants={item}>{text}</motion.p>
 						<motion.div className="space-y-5 mt-11" variants={item}>
 							<h2 className="font-semibold text-xl bg-slate-700 w-max px-3 py-1 rounded-full">
 								Skills
