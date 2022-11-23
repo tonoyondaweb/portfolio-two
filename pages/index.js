@@ -64,7 +64,7 @@ export default function Index(props) {
 						className="text-xl font-bold md:text-[2em]"
 						variants={item}
 					>
-						Front-End Dev
+						UI / Front-End
 					</motion.p>
 					<motion.div
 						variants={item}

@@ -10,7 +10,7 @@ export default function Navbar() {
 	return (
 		<>
 			<nav
-				className={`w-screen h-screen fixed bg-black/60 backdrop-blur-xl top-0 transition-all ease-in-out duration-[400ms] ${
+				className={`w-screen h-screen fixed bg-black/50 backdrop-blur-xl top-0 transition-all ease-in-out duration-[400ms] ${
 					menu ? "right-0" : "right-[-100%]"
 				}`}
 			>

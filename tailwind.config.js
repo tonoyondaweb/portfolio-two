@@ -6,9 +6,9 @@ module.exports = {
 	],
 	theme: {
 		extend: {
-			transitionProperty: {
-				"width": "width",
-			},
+			screens: {
+				'lh': {'raw': '(min-height: 840px)'}
+			}
 		},
 	},
 	future: {

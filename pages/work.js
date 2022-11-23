@@ -36,17 +36,17 @@ export default function Work({ projects }) {
 				<title>Tanay Lodh - Work</title>
 				<meta charSet="UTF-8" />
 			</Head>
-			<section className="h-screen overflow-y-scroll grid items-center px-11">
+			<section className="min-h-screen grid items-center px-11">
 				<motion.div
-					className="h-[90%] mt-20 flex flex-col justify-center gap-y-5 pb-11 md:ml-11"
+					className="min-h-[90%] mt-20 flex flex-col justify-center gap-y-5 md:ml-11"
 					variants={container}
 					initial="inital"
 					animate="animate"
 				>
-					<motion.h1 className="text-[5em] font-bold lg:text-[10em] sticky top-20 -z-10" variants={item}>
-						My Work
+					<motion.h1 className="text-[3.5em] font-bold md:text-[5em] lg:text-[10em] sticky top-20 -z-10" variants={item}>
+						My Work.
 					</motion.h1>
-					<motion.div className="grid grid-cols-1 gap-7 md:grid-cols-2 lg:grid-cols-3 bg-gray-900" variants={item}>
+					<motion.div className="grid grid-cols-1 gap-7 rounded-t-xl rounded-b-xl md:grid-cols-2 bg-gray-900" variants={item}>
 						{projects.map((project) => (
 							<ProjectCard
 								key={project.index}
@@ -59,7 +59,7 @@ export default function Work({ projects }) {
 							/>
 						))}
 					</motion.div>
-					<motion.button className="mt-5" variants={item}>
+					<motion.button className="mt-5 mb-11" variants={item}>
 						<Link
 							href="/contact"
 							scroll={false}
