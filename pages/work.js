@@ -2,7 +2,7 @@ import Head from "next/head";
 import Link from "next/link";
 import { HiArrowRight } from "react-icons/hi";
 import { motion } from "framer-motion";
-import { client } from "../contentful";
+import {sanityClient} from "../sanity"
 import ProjectCard from "../components/ProjectCard";
 
 const container = {
@@ -30,6 +30,7 @@ const item = {
 };
 
 export default function Work({ projects }) {
+	const {} = projects
 	return (
 		<>
 			<Head>
@@ -46,7 +47,7 @@ export default function Work({ projects }) {
 					<motion.h1 className="text-[3.5em] font-bold md:text-[5em] lg:text-[10em] sticky top-20 -z-10" variants={item}>
 						My Work.
 					</motion.h1>
-					<motion.div className="grid grid-cols-1 gap-7 rounded-t-xl rounded-b-xl md:grid-cols-2 bg-gray-900" variants={item}>
+					<motion.div className="mt-6 grid grid-cols-1 gap-7 rounded-t-xl rounded-b-xl md:grid-cols-2 bg-gray-900 shadow-[0_1px_10px_15px] shadow-gray-900" variants={item}>
 						{projects.map((project) => (
 							<ProjectCard
 								key={project.index}
@@ -76,23 +77,23 @@ export default function Work({ projects }) {
 }
 
 export async function getStaticProps() {
-	const projects = await client
-		.getEntries({ content_type: "project" })
+	const projects = await sanityClient.fetch(`*[_type == "Work"]`)
 		.then((data) =>
-			data.items.map((item) => ({
-				title: item.fields.title,
-				description: item.fields.description,
-				gitLink: item.fields.gitLink,
-				liveLink: item.fields.liveLink,
-				tech: item.fields.tech,
-				img: item.fields.thumbnail.fields.file.url,
-				index: item.fields.serialNumber,
-			}))
+		data.map((item) => ({
+			title: item.name,
+			description: item.description,
+			gitLink: item.gitLink,
+			liveLink: item.liveLink,
+			tech: item.tech,
+			img: item.img,
+			id: item._id
+		}))
 		);
 
 	return {
 		props: {
-			projects: projects.sort((a, b) => a.index - b.index),
+			projects,
+			// : projects.sort((a, b) => a.index - b.index)
 		},
 	};
 }

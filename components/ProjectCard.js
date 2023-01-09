@@ -1,6 +1,7 @@
 import Image from "next/image";
 import {motion} from "framer-motion"
 import { IoOpenOutline, IoLogoGithub } from "react-icons/io5";
+import { urlFor } from "../sanity";
 
 const item = {
 	inital: {
@@ -31,9 +32,9 @@ export default function ProjectCard({
 			>
 				<Image
 					className="w-full h-max mb-5 rounded-t-xl"
-					src={`https:${img}`}
-					height={300}
-					width={300}
+					src={urlFor(img).url()}
+					height={500}
+					width={500}
 					alt={`${title} project thumbnail`}
 					priority
 				/>

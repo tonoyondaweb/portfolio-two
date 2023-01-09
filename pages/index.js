@@ -1,11 +1,11 @@
 import Head from "next/head";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { client } from "../contentful";
 import { HiArrowRight } from "react-icons/hi";
 import { TbBrandGithub, TbBrandTwitter, TbBrandLinkedin } from "react-icons/tb";
+import { sanityClient } from "../sanity";
 
-export default function Index(props) {
+export default function Index({links}) {
 	const container = {
 		initial: { opacity: 0 },
 		animate: {
@@ -30,8 +30,7 @@ export default function Index(props) {
 		},
 	};
 
-	const { email, github, twitter, linkedin } = props.links;
-
+	const { github, twitter, linkedin } = links;
 	return (
 		<>
 			<Head>
@@ -105,10 +104,7 @@ export default function Index(props) {
 }
 
 export async function getStaticProps() {
-	const links = await client
-		.getEntry("19XItu7QEOriO9CAKYPaSK")
-		.then((data) => data.fields.links);
-
+	const links = await sanityClient.fetch(`*[_type == "socials"][0]`)
 	return {
 		props: {
 			links,

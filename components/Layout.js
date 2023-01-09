@@ -4,7 +4,7 @@ export default function Layout({ children }) {
 	return (
 		<>
 			<Menu />
-			<main>{children}</main>
+			<main className="max-w-[1200px] mx-auto">{children}</main>
 		</>
 	);
 }
