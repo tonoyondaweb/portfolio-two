@@ -95,5 +95,6 @@ export async function getStaticProps() {
 			projects,
 			// : projects.sort((a, b) => a.index - b.index)
 		},
+		revalidate: 60
 	};
 }

@@ -97,5 +97,6 @@ export async function getStaticProps() {
       text: about.text,
       skills: about.skills,
     },
+    revalidate: 60
   };
 }
