@@ -33,7 +33,7 @@ export default function ProjectCard({
 				<Image
 					className="w-full h-max mb-5 rounded-t-xl"
 					src={urlFor(img).url()}
-					height={500}
+					height={300}
 					width={500}
 					alt={`${title} project thumbnail`}
 					priority
