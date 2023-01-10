@@ -71,7 +71,7 @@ export default function Contact(props) {
           </motion.div>
           <motion.button variants={item}>
             <a
-              href={email}
+              href={`mailto:${email}`}
               className="bg-indigo-400 text-slate-200 w-max mt-5 py-3 px-5 text-xl text-center font-semibold rounded-full flex items-center gap-x-2 transition-all hover:scale-[1.2] hover:bg-indigo-500 hover:text-white"
             >
               Say hello!
