@@ -39,14 +39,14 @@ export default function ProjectCard({
 					priority
 				/>
 			</a>
-			<div className="flex flex-col gap-y-5 items-center px-3 pb-3">
+			<div className="flex flex-col gap-y-5 px-3 pb-3">
 				<h3 className="self-start text-2xl font-bold">{title}</h3>
 				<p className="self-start">{desc}</p>
-				<ul className="w-full flex">
+				<ul className="flex flex-wrap ">
 					{tech.map((tech, index) => (
 						<>
 							<li key={index}>{tech}</li>
-							<span className="mx-1 last:hidden">/</span>
+							<span key={index+105} className="mx-1 last:hidden">/</span>
 						</>
 					))}
 				</ul>

@@ -30,7 +30,6 @@ const item = {
 };
 
 export default function Work({ projects }) {
-	const {} = projects
 	return (
 		<>
 			<Head>
@@ -86,14 +85,14 @@ export async function getStaticProps() {
 			liveLink: item.liveLink,
 			tech: item.tech,
 			img: item.img,
-			id: item._id
+			id: item._id,
+			index: item.index
 		}))
 		);
 
 	return {
 		props: {
-			projects: projects.reverse()
-			// : projects.sort((a, b) => a.index - b.index)
+			projects: projects.sort((a, b) => b.index - a.index)
 		},
 		revalidate: 60
 	};
