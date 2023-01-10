@@ -92,7 +92,7 @@ export async function getStaticProps() {
 
 	return {
 		props: {
-			projects,
+			projects: projects.reverse()
 			// : projects.sort((a, b) => a.index - b.index)
 		},
 		revalidate: 60
