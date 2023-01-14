@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import { ReactNode } from "react";
 
 type Props = {
@@ -5,7 +6,11 @@ type Props = {
 };
 
 const Layout = ({ children }: Props) => {
-  return <>{children}</>;
+  return (
+    <>
+      <main>{children}</main>
+    </>
+  );
 };
 
 export default Layout;
